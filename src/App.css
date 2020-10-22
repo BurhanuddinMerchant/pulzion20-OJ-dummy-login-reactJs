@@ -37,10 +37,11 @@ nav ul {
   list-style: none;
   justify-content: center;
   display: flex;
+  flex-direction: column;
   padding: 0;
 }
 nav li {
-  padding: 0 2em;
+  padding: 0.5em;
 }
 nav a {
   margin-top: 2em;
@@ -58,6 +59,12 @@ nav a:hover {
   }
   nav {
     margin: auto 0;
+  }
+  nav ul {
+    flex-direction: row;
+  }
+  nav li {
+    padding: 0 2em;
   }
 }
 
