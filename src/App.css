@@ -96,6 +96,18 @@ main {
 .container button:hover {
   color: #d72323;
 }
+#submit-feedback-neg {
+  margin-top: 1em;
+  font-size: 1rem;
+  background-color: #f5eded;
+  color: orangered;
+}
+#submit-feedback-pos {
+  margin-top: 1em;
+  font-size: 1rem;
+  background-color: #ffffcc;
+  color: green;
+}
 /* end of main */
 
 /* footer */
