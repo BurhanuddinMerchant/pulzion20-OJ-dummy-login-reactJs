@@ -44,14 +44,26 @@ nav li {
   padding: 0.5em;
 }
 nav a {
+  border: #d72323 2px solid;
+  width: 5em;
+  background-color: #f5eded;
+  border-radius: 7%;
   margin-top: 2em;
+  padding: 0.3em;
   text-decoration: none;
-  color: #3e3636;
-}
-nav a:hover {
   color: #d72323;
 }
-@media (min-width: 675px) {
+nav a:hover {
+  border: #333333 2px solid;
+  color: #f5eded;
+  background-color: #f85252;
+}
+/* .current {
+  border: #000000 2px solid;
+  color: #000000;
+  background-color: #f85252;
+} */
+@media (min-width: 830px) {
   header {
     flex-direction: row;
     justify-content: space-evenly;
@@ -94,7 +106,7 @@ main {
   display: block;
   font-size: 1rem;
 }
-.container button {
+/* .container button {
   margin-top: 2em;
   font-size: 1rem;
   color: #ffffff;
@@ -102,6 +114,18 @@ main {
 }
 .container button:hover {
   color: #d72323;
+} */
+.box a {
+  text-decoration: none;
+  color: #d72323;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.box a:hover {
+  text-decoration: none;
+  color: blue;
+  font-size: 1rem;
+  font-weight: 600;
 }
 #submit-feedback-neg {
   margin-top: 1em;

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { formField, clearField } from "../../actions/index";
+import Button from "@material-ui/core/Button";
+import Input from "@material-ui/core/Input";
 const Login = () => {
   const user = useSelector((state) => state.login);
   const dispatch = useDispatch();
@@ -26,9 +28,9 @@ const Login = () => {
     <main>
       <div className="container">
         <div className="box" style={{ textAlign: "center" }}>
-          <h4>Pulzion 20' OJ Login</h4>
+          <h2>Pulzion 20' OJ Login</h2>
           <form onSubmit={handleSubmit}>
-            <input
+            <Input
               type="email"
               id="email"
               name="email"
@@ -36,7 +38,7 @@ const Login = () => {
               value={user.email}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <input
+            <Input
               type="password"
               placeholder="password"
               id="password"
@@ -44,7 +46,10 @@ const Login = () => {
               value={user.password}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <button type="submit">Login</button>
+            <br />
+            <Button variant="contained" color="secondary" type="submit">
+              Login
+            </Button>
           </form>
           <div id="submit-feedback-pos"></div>
           <div id="submit-feedback-neg"></div>

@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { formField, clearField } from "../../actions";
+import Button from "@material-ui/core/Button";
+import Input from "@material-ui/core/Input";
 const Register = () => {
   // const [user, setUser] = useState();
   const user = useSelector((state) => state.register);
@@ -39,9 +41,9 @@ const Register = () => {
     <main>
       <div className="container">
         <div className="box" style={{ textAlign: "center" }}>
-          <h4>Signup for Pulzion 2020</h4>
+          <h2>Signup for Pulzion 2020</h2>
           <form onSubmit={handleSubmit}>
-            <input
+            <Input
               type="name"
               id="name"
               name="name"
@@ -49,7 +51,7 @@ const Register = () => {
               value={user.name}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <input
+            <Input
               type="email"
               id="email"
               name="email"
@@ -57,7 +59,7 @@ const Register = () => {
               value={user.email}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <input
+            <Input
               type="password"
               placeholder="password"
               id="password"
@@ -65,7 +67,7 @@ const Register = () => {
               value={user.password}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <input
+            <Input
               type="password"
               placeholder="confirm password"
               id="confirmPassword"
@@ -73,7 +75,7 @@ const Register = () => {
               value={user.confirmPassword}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <input
+            <Input
               type="phone number"
               placeholder="phone number"
               id="phoneNumber"
@@ -81,7 +83,10 @@ const Register = () => {
               value={user.phoneNumber}
               onChange={(e) => dispatch(formField(e.target))}
             />
-            <button type="submit">Sign-Up</button>
+            <br />
+            <Button variant="contained" color="secondary" type="submit">
+              Sign-Up
+            </Button>
           </form>
 
           <div id="submit-feedback-pos"></div>

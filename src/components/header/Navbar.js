@@ -5,7 +5,9 @@ const Navbar = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" className="current">
+            Home
+          </Link>
         </li>
         <li>
           <Link to="/">All Problems</Link>
