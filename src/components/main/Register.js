@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { formField } from "../../actions";
 const Register = () => {
-  const [user, setUser] = useState({
-    id: new Date().getTime(),
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    phoneNumber: "",
-  });
+  // const [user, setUser] = useState();
+  const user = useSelector((state) => state.register);
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, phoneNumber, password, confirmPassword } = user;
@@ -17,23 +14,23 @@ const Register = () => {
         document.getElementById("submit-feedback-neg").innerHTML =
           "Passwords Don't match!!";
         document.getElementById("submit-feedback-pos").innerHTML = "";
-        setUser({
-          ...user,
-          password: "",
-          confirmPassword: "",
-        });
+        // setUser({
+        //   ...user,
+        //   password: "",
+        //   confirmPassword: "",
+        // });
       } else {
         document.getElementById("submit-feedback-neg").innerHTML = "";
         document.getElementById("submit-feedback-pos").innerHTML =
           "Successfully Submitted!!";
-        setUser({
-          id: new Date().getTime(),
-          name: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-          phoneNumber: "",
-        });
+        // setUser({
+        //   id: new Date().getTime(),
+        //   name: "",
+        //   email: "",
+        //   password: "",
+        //   confirmPassword: "",
+        //   phoneNumber: "",
+        // });
       }
     } else {
       document.getElementById("submit-feedback-neg").innerHTML =
@@ -41,10 +38,10 @@ const Register = () => {
       document.getElementById("submit-feedback-pos").innerHTML = "";
     }
   };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setUser({ ...user, [name]: value });
+  // };
   return (
     <main>
       <div className="container">
@@ -57,7 +54,7 @@ const Register = () => {
               name="name"
               placeholder="name"
               value={user.name}
-              onChange={handleChange}
+              onChange={(e) => dispatch(formField(e))}
             />
             <input
               type="email"
@@ -65,7 +62,7 @@ const Register = () => {
               name="email"
               placeholder="enter email"
               value={user.email}
-              onChange={handleChange}
+              onChange={(e) => dispatch(formField(e))}
             />
             <input
               type="password"
@@ -73,7 +70,7 @@ const Register = () => {
               id="password"
               name="password"
               value={user.password}
-              onChange={handleChange}
+              onChange={(e) => dispatch(formField(e))}
             />
             <input
               type="password"
@@ -81,7 +78,7 @@ const Register = () => {
               id="confirmPassword"
               name="confirmPassword"
               value={user.confirmPassword}
-              onChange={handleChange}
+              onChange={(e) => dispatch(formField(e))}
             />
             <input
               type="phone number"
@@ -89,7 +86,7 @@ const Register = () => {
               id="phoneNumber"
               name="phoneNumber"
               value={user.phoneNumber}
-              onChange={handleChange}
+              onChange={(e) => dispatch(formField(e))}
             />
             <button type="submit">Sign-Up</button>
           </form>
