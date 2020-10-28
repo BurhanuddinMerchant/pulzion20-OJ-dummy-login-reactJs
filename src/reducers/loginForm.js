@@ -1,4 +1,4 @@
-const loginReducer = (
+const formReducer = (
   state = {
     id: new Date().getTime(),
     email: "",
@@ -8,10 +8,13 @@ const loginReducer = (
 ) => {
   switch (action.type) {
     case "FORM_FIELD_CHANGE":
-      const { name, value } = action.payload.target;
+      const { name, value } = action.payload;
       return { ...state, [name]: value };
+    case "CLEAR_FIELD":
+      return { ...state, [action.payload.name]: "" };
+
     default:
       return state;
   }
 };
-export default loginReducer;
+export default formReducer;

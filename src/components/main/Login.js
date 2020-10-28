@@ -1,28 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { formField } from "../../actions/index";
+import { formField, clearField } from "../../actions/index";
 const Login = () => {
   const user = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
-  // const [user, setUser] = useState({
-  //   id: new Date().getTime(),
-  //   email: "",
-  //   password: "",
-  // });
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const { email, password } = user;
     const { email, password } = user;
     if (email && password) {
       document.getElementById("submit-feedback-neg").innerHTML = "";
       document.getElementById("submit-feedback-pos").innerHTML =
         "Successfully Submitted!!";
-      // setUser({
-      //   email: "",
-      //   password: "",
-      // });
+      dispatch(clearField(e.target.email));
+      dispatch(clearField(e.target.password));
     } else {
       document.getElementById("submit-feedback-neg").innerHTML =
         "Please Fill All Details!!";
@@ -30,10 +22,6 @@ const Login = () => {
     }
   };
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setUser({ ...user, [name]: value });
-  // };
   return (
     <main>
       <div className="container">
@@ -46,7 +34,7 @@ const Login = () => {
               name="email"
               placeholder="enter email"
               value={user.email}
-              onChange={(e) => dispatch(formField(e))}
+              onChange={(e) => dispatch(formField(e.target))}
             />
             <input
               type="password"
@@ -54,7 +42,7 @@ const Login = () => {
               id="password"
               name="password"
               value={user.password}
-              onChange={(e) => dispatch(formField(e))}
+              onChange={(e) => dispatch(formField(e.target))}
             />
             <button type="submit">Login</button>
           </form>
