@@ -44,7 +44,6 @@ nav li {
   padding: 0.5em;
 }
 nav a {
-  border: #d72323 2px solid;
   width: 5em;
   background-color: #f5eded;
   border-radius: 7%;
@@ -54,7 +53,6 @@ nav a {
   color: #d72323;
 }
 nav a:hover {
-  border: #333333 2px solid;
   color: #f5eded;
   background-color: #f85252;
 }
